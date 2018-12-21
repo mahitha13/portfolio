@@ -270,6 +270,16 @@
 			margin: 3em 0;
 		}
 
+	/* profile image */
+	.profileBox {
+		border-radius: 100%;
+		border: 5pt solid #ffffff;
+		height: 30vh;
+		width: 30vh;
+		margin-bottom: 20px;
+		text-align: center:
+	}
+
 	.align-left {
 		text-align: left;
 	}
