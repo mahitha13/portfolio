@@ -98,6 +98,59 @@
 
 
 			});
+        // Catalogue.
+			$('.catalogue').each(function() {
+
+				var	$catalogue = $(this),
+					$list = $catalogue.find('.list');
+
+				
+				// Tabs.
+					$catalogue.each( function() {
+
+						var $this = $(this),
+							$tabs = $this.find('.tabs a'),
+							$project = $this.find('.project');
+
+						$tabs.on('click', function(e) {
+
+							var $this = $(this),
+								tag = $this.data('tag');
+
+							// Prevent default.
+							 	e.preventDefault();
+
+							// Remove active class from all tabs.
+								$tabs.removeClass('active');
+
+							// Reapply active class to current tab.
+								$this.addClass('active');
+
+							// Hide projects that do not have the same class as the clicked tab.
+								$project
+									.fadeOut('fast')
+									.each(function() {
+
+										var $this = $(this);
+
+										if ($this.hasClass(tag))
+											$this
+												.fadeOut('fast')
+												.delay(200)
+												.queue(function(next) {
+													$this.fadeIn();
+													next();
+												});
+
+									});
+
+						});
+
+					});
+
+
+			});
+
 
 	});
 
